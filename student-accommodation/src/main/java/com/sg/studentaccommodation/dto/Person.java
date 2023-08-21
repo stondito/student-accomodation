@@ -1,15 +1,15 @@
-package com.sg.studentaccommodation.entities.people;
+package com.sg.studentaccommodation.dto;
 
 import com.sg.studentaccommodation.entities.objects.Sex;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@MappedSuperclass
 public abstract class Person {
-
     @Column(name = "first_name")
     private String firstName;
 

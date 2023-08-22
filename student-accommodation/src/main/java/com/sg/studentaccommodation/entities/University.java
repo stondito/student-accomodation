@@ -1,6 +1,6 @@
 package com.sg.studentaccommodation.entities;
 
-import com.sg.studentaccommodation.entities.people.Rector;
+import com.sg.studentaccommodation.entities.people.Student;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,11 +18,9 @@ public class University {
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "rector_id")
-    private Rector rector;
-
     @OneToMany(mappedBy = "university")
     private Set<Faculty> faculties;
 
+    @OneToMany(mappedBy = "university")
+    private Set<Student> student;
 }

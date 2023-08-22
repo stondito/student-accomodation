@@ -19,6 +19,7 @@ public class StudentController {
 
     @PostMapping(path = "/student/login")
     public StudentDtoOut retrieveUser(@Validated @RequestBody StudentDtoIn student) {
+        System.out.println("Hit:"+ student.getPassword() +"|" + student.getFn());
         Student s = studentService.retrieveUser(student);
         StudentDtoOut studentDtoOut = modelMapper.map(s, StudentDtoOut.class);
 

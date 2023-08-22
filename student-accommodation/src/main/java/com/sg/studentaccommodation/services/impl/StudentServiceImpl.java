@@ -15,6 +15,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student retrieveUser(StudentDtoIn student) {
         return this.studentDao.findStudentByFnAndPassword(student.getFn(), student.getPassword())
-                .orElseThrow(() -> new RuntimeException());
+                .orElseThrow(() -> new RuntimeException("Can't find user"));
     }
 }

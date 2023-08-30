@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StudentDtoOut extends Person{
+public final class StudentDtoOut extends Person{
 
     private long id;
 

@@ -1,19 +1,20 @@
-package com.sg.studentaccommodation.services.impl;
+package com.sg.studentaccommodation.services.dao.impl;
 
-import com.sg.studentaccommodation.dao.StudentDao;
 import com.sg.studentaccommodation.dto.StudentDtoIn;
 import com.sg.studentaccommodation.dto.StudentDtoOut;
 import com.sg.studentaccommodation.entities.objects.Status;
 import com.sg.studentaccommodation.entities.people.Student;
-import com.sg.studentaccommodation.services.StudentService;
+import com.sg.studentaccommodation.repos.StudentRepo;
+
+import com.sg.studentaccommodation.services.dao.StudentDao;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class StudentServiceImpl implements StudentService {
-    private final StudentDao studentDao;
+public final class StudentServiceImpl implements StudentDao {
+    private final StudentRepo studentDao;
     private ModelMapper modelMapper;
 
     @Override

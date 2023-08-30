@@ -1,9 +1,9 @@
-package com.sg.studentaccommodation.services;
+package com.sg.studentaccommodation.services.dao;
 
 import com.sg.studentaccommodation.entities.University;
 
 
-public interface UniversityService {
+public interface UniversityDao {
 
     University get();
 

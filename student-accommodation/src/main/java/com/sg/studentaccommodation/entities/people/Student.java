@@ -3,7 +3,6 @@ package com.sg.studentaccommodation.entities.people;
 
 import com.sg.studentaccommodation.entities.Room;
 import com.sg.studentaccommodation.entities.University;
-import com.sg.studentaccommodation.entities.objects.Sex;
 import com.sg.studentaccommodation.entities.objects.Status;
 import jakarta.persistence.*;
 import lombok.Getter;

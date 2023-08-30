@@ -1,22 +1,25 @@
 package com.sg.studentaccommodation.dto;
 
+
 import com.sg.studentaccommodation.entities.objects.Sex;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
-public abstract class Person {
+@AllArgsConstructor
+public final class HostDtoOut {
+    private long id;
+
     private String firstName;
 
     private String LastName;
-
-    @Enumerated(EnumType.STRING)
     private Sex sex;
-
-    @NotBlank
     private String password;
+    private Date dataPfEntrance;
+
+    private String username;
 }

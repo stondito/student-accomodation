@@ -2,7 +2,7 @@ package com.sg.studentaccommodation.controllers;
 
 import com.sg.studentaccommodation.dto.StudentDtoIn;
 import com.sg.studentaccommodation.dto.StudentDtoOut;
-import com.sg.studentaccommodation.services.StudentService;
+import com.sg.studentaccommodation.services.dao.StudentDao;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class StudentController {
-    private final StudentService studentService;
+public final class StudentController {
+    private final StudentDao studentService;
 
 
     @PostMapping(path = "/student/login")

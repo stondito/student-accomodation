@@ -1,28 +1,18 @@
 package com.sg.studentaccommodation.dto;
 
-import com.sg.studentaccommodation.entities.objects.Sex;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.validation.constraints.NotBlank;
+
 
 import java.util.Objects;
 
 @Getter
 @Setter
-public class StudentDtoIn {
-
-    @NotBlank
-    private String password;
+public final class StudentDtoIn extends Person{
 
     @NotNull
     private Integer fn;
-
-    private String firstName;
-
-    private String lastName;
-
-    private Sex sex;
 
     private String university;
 
@@ -31,11 +21,11 @@ public class StudentDtoIn {
     @Override
     public String toString() {
         return "StudentDtoIn{" +
-                "password='" + password + '\'' +
+                "password='" + getPassword() + '\'' +
                 ", fn=" + fn +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", sex=" + sex +
+                ", firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", sex=" + getSex() +
                 ", university='" + university + '\'' +
                 ", email='" + email + '\'' +
                 '}';
@@ -45,11 +35,11 @@ public class StudentDtoIn {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof StudentDtoIn that)) return false;
-        return Objects.equals(password, that.password) && Objects.equals(fn, that.fn) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && sex == that.sex && Objects.equals(university, that.university);
+        return Objects.equals(getPassword(), that.getPassword()) && Objects.equals(fn, that.fn) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && getSex() == that.getSex() && Objects.equals(university, that.university);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(password, fn, firstName, lastName, sex, university);
+        return Objects.hash(getPassword(), fn, getFirstName(), getLastName(), getSex(), university);
     }
 }

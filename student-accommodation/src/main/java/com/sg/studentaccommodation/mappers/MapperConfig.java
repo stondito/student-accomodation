@@ -1,12 +1,11 @@
 package com.sg.studentaccommodation.mappers;
 
-import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MapperConfig {
+public final class MapperConfig {
 
     @Bean
     public ModelMapper mapper() {

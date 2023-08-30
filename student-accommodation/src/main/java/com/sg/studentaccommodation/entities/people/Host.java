@@ -13,6 +13,7 @@ import java.util.Set;
 @Setter
 public class Host extends Person{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Date dateOfEntrance;

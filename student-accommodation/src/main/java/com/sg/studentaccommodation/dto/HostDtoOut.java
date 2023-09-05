@@ -22,4 +22,7 @@ public final class HostDtoOut {
     private Date dataPfEntrance;
 
     private String username;
+
+    public HostDtoOut() {
+    }
 }

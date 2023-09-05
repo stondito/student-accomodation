@@ -17,11 +17,12 @@ public final class HostDtoIn extends Person {
     @Override
     public String toString() {
         return "HostDtoIn{" +
-                "dataPfEntrance=" + dataPfEntrance +
-                "firstName=" + this.getFirstName() +
-                "lastName=" + this.getLastName() +
-                "sex=" + this.getSex() +
-                "password=" + this.getPassword() +
+                "dataPfEntrance=" + dataPfEntrance +" "+
+                "firstName=" + this.getFirstName() +" "+
+                "lastName=" + this.getLastName() +" "+
+                "sex=" + this.getSex() +" "+
+                "password=" + this.getPassword() +" "+
+                "username="+ this.username + " "+
                 '}';
     }
 }

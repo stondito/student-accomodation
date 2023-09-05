@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public final class StudentServiceImpl implements StudentDao {
+public final class StudentDaoImpl implements StudentDao {
     private final StudentRepo studentDao;
     private ModelMapper modelMapper;
 

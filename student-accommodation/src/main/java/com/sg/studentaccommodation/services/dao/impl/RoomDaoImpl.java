@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public final class RoomServiceImpl implements RoomDao {
+public final class RoomDaoImpl implements RoomDao {
     private final RoomRepo roomDao;
 
 }

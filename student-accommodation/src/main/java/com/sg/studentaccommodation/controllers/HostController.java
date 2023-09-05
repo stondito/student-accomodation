@@ -32,10 +32,10 @@ public final class HostController {
     }
 
     @PostMapping(path = "/host/login")
-    public HostDtoOut retriveHost(@Validated @RequestBody HostDtoIn hostDtoIn) {
+    public HostDtoOut retrieveHost(@Validated @RequestBody HostDtoIn hostDtoIn) {
         System.out.println( "Hit " + hostDtoIn);
 
 
-        return this.hostDao.registerHost(hostDtoIn);
+        return this.hostDao.retrieveHost(hostDtoIn);
     }
 }

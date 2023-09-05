@@ -11,6 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "student")
 public class Student extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

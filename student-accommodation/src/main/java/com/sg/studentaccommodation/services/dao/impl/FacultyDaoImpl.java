@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public final class FacultyServiceImpl implements FacultyDao {
+public final class FacultyDaoImpl implements FacultyDao {
     private final FacultyRepo facultyDao;
 }

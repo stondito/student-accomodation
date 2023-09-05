@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public final class BlockServiceImpl implements BlockDao {
+public final class BlockDaoImpl implements BlockDao {
 
     private final BlockRepo blockDao;
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public final class UniversityServiceImpl implements UniversityDao {
+public final class UniversityDaoImpl implements UniversityDao {
     private final UniversityRepo universityDao;
     @Override
     public University get() {

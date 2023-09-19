@@ -2,7 +2,6 @@ package com.sg.studentaccommodation.entities.people;
 
 
 import com.sg.studentaccommodation.entities.Room;
-import com.sg.studentaccommodation.entities.University;
 import com.sg.studentaccommodation.entities.objects.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -21,6 +20,8 @@ public class Student extends Person {
 
     private String email;
 
+    private String university;
+
     @Column(name = "year_of_studying")
     private int yearOfStudying;
 
@@ -34,9 +35,5 @@ public class Student extends Person {
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
-
-    @ManyToOne
-    @JoinColumn(name = "university_id")
-    private University university;
 
 }

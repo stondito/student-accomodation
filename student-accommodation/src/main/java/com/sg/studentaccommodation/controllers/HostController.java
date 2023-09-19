@@ -4,10 +4,9 @@ import com.sg.studentaccommodation.dto.HostDtoIn;
 import com.sg.studentaccommodation.dto.HostDtoOut;
 import com.sg.studentaccommodation.services.dto.HostServiceDto;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,20 +14,22 @@ import java.util.Date;
 
 @RestController
 @AllArgsConstructor
-public final class HostController {
+public class HostController {
     private final HostServiceDto serviceDto;
 
     @PostMapping(path = "/host/register")
     public HostDtoOut registerHost(@RequestBody HostDtoIn hostDtoIn) throws ParseException {
         System.out.println(hostDtoIn);
 
-        SimpleDateFormat sm = new SimpleDateFormat("mm-dd-yyyy");
+        SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = sm.format(new Date());
 
         Date dt = sm.parse(strDate);
-        hostDtoIn.setDataPfEntrance(dt);
+        hostDtoIn.setDateOfEntrance(dt);
 
-        return this.serviceDto.registerHost(hostDtoIn);
+        HostDtoOut dto = this.serviceDto.registerHost(hostDtoIn);
+        System.out.println(dto.getId() + " " + dto.getDateOfEntrance());
+        return dto;
     }
 
     @PostMapping(path = "/host/login")
@@ -36,5 +37,11 @@ public final class HostController {
         System.out.println( "Hit " + hostDtoIn);
 
         return this.serviceDto.retrieveHost(hostDtoIn);
+    }
+
+    @Transactional
+    @GetMapping(path = "/host/get/{id}")
+    public HostDtoOut getHost(@PathVariable(name = "id") Long id) {
+        return this.serviceDto.getHostById(id);
     }
 }

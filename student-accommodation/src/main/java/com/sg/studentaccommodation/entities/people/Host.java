@@ -6,6 +6,7 @@ import com.sg.studentaccommodation.entities.Item;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +21,8 @@ public class Host extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Temporal(TemporalType.DATE) // Specify the temporal type
+    @DateTimeFormat(pattern = "dd/MM/yyyy") // Specify the date format
     private Date dateOfEntrance;
 
     private String username;

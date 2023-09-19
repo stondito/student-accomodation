@@ -1,5 +1,6 @@
 package com.sg.studentaccommodation.entities.people;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.entities.Item;
 import jakarta.persistence.*;
@@ -30,6 +31,7 @@ public class Host extends Person{
     @OneToMany(mappedBy = "host")
     private Set<Student> students;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "host")
     private List<Item> news;
 

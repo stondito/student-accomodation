@@ -16,26 +16,19 @@ public final class HostDaoImpl implements HostDao {
     private final HostRepo hostRepo;
     private final ModelMapper modelMapper;
 
-    public HostDtoOut registerHost(HostDtoIn hostDtoIn) {
+    public Host registerHost(HostDtoIn hostDtoIn) {
         Host host = modelMapper.map(hostDtoIn, Host.class);
 
-        this.hostRepo.save(host);
-
-        HostDtoOut hostDtoOut = modelMapper.map(host, HostDtoOut.class);
-
-        return hostDtoOut;
+        return this.hostRepo.save(host);
     }
 
     // todo custom exception
     @Override
-    public HostDtoOut retrieveHost(HostDtoIn hostDtoIn) {
-        Host host = this.hostRepo.
-                    findByUsernameAndPassword(hostDtoIn.getUsername(), hostDtoIn.getPassword())
-                    .orElseThrow(RuntimeException::new);
+    public Host retrieveHost(HostDtoIn hostDtoIn) {
 
-        HostDtoOut hostDtoOut = modelMapper.map(host, HostDtoOut.class);
-
-        return hostDtoOut;
+        return this.hostRepo.
+                findByUsernameAndPassword(hostDtoIn.getUsername(), hostDtoIn.getPassword())
+                .orElseThrow(RuntimeException::new);
     }
 
     // todo custom exception

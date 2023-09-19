@@ -1,7 +1,6 @@
 package com.sg.studentaccommodation.services.dao.impl;
 
 import com.sg.studentaccommodation.dto.StudentDtoIn;
-import com.sg.studentaccommodation.dto.StudentDtoOut;
 import com.sg.studentaccommodation.entities.objects.Status;
 import com.sg.studentaccommodation.entities.people.Student;
 import com.sg.studentaccommodation.repos.StudentRepo;
@@ -18,20 +17,17 @@ public final class StudentDaoImpl implements StudentDao {
     private ModelMapper modelMapper;
 
     @Override
-    public StudentDtoOut retrieveUser(StudentDtoIn student) {
-        Student s = this.studentDao.findStudentByFnAndPassword(student.getFn(), student.getPassword())
-                    .orElseThrow(() -> new RuntimeException("Can't find user"));
+    public Student retrieveUser(StudentDtoIn student) {
 
-        return modelMapper.map(s, StudentDtoOut.class);
+        return this.studentDao.findStudentByFnAndPassword(student.getFn(), student.getPassword())
+                .orElseThrow(() -> new RuntimeException("Can't find user"));
     }
 
     @Override
-    public StudentDtoOut registerUser(StudentDtoIn student) {
+    public Student registerUser(StudentDtoIn student) {
         Student s = modelMapper.map(student, Student.class);
         s.setStatus(Status.New);
-        s =  this.studentDao.save(s);
 
-
-        return modelMapper.map(s, StudentDtoOut.class);
+        return this.studentDao.save(s);
     }
 }

@@ -1,5 +1,6 @@
 package com.sg.studentaccommodation.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sg.studentaccommodation.entities.people.Host;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Item {
 
     private LocalDateTime date;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "host_id")
     private Host host;

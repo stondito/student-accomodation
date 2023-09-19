@@ -6,7 +6,7 @@ import com.sg.studentaccommodation.dto.StudentDtoOut;
 import com.sg.studentaccommodation.entities.people.Student;
 
 public interface StudentDao {
-    StudentDtoOut retrieveUser(StudentDtoIn student);
+    Student retrieveUser(StudentDtoIn student);
 
-    StudentDtoOut registerUser(StudentDtoIn student);
+    Student registerUser(StudentDtoIn student);
 }

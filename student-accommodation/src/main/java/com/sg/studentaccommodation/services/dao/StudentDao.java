@@ -9,4 +9,6 @@ public interface StudentDao {
     Student retrieveUser(StudentDtoIn student);
 
     Student registerUser(StudentDtoIn student);
+
+    Student getById(Long id);
 }

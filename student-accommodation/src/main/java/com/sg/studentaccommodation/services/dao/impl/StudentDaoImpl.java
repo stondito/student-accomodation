@@ -30,4 +30,11 @@ public final class StudentDaoImpl implements StudentDao {
 
         return this.studentDao.save(s);
     }
+
+    @Override
+    public Student getById(Long id) {
+        return this.studentDao
+                .findById(id)
+                .orElseThrow(() -> new RuntimeException("Can't find user with id: " + id));
+    }
 }

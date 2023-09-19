@@ -24,7 +24,7 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<Student> students;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "block_id")
     private Block block;
 }

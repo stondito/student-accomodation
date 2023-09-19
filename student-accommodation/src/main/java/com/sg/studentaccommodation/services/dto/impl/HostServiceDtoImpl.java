@@ -42,4 +42,9 @@ public class HostServiceDtoImpl implements HostServiceDto {
         return hostDtoOut;
     }
 
+    @Override
+    public boolean checkIfExistById(Long id) {
+        return this.dao.checkIfExistById(id);
+    }
+
 }

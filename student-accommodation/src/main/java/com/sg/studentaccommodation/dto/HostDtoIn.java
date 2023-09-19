@@ -10,6 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 public final class HostDtoIn extends Person {
+    private Long id;
     private Date dataPfEntrance;
 
     @NotBlank

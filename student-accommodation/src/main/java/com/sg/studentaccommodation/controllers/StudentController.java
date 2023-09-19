@@ -1,17 +1,17 @@
 package com.sg.studentaccommodation.controllers;
 
+import com.sg.studentaccommodation.dto.HostDtoIn;
 import com.sg.studentaccommodation.dto.StudentDtoIn;
 import com.sg.studentaccommodation.dto.StudentDtoOut;
 import com.sg.studentaccommodation.services.dto.StudentServiceDto;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-public final class StudentController {
+public class StudentController {
     private final StudentServiceDto studentService;
 
     @PostMapping(path = "/student/login")
@@ -26,5 +26,11 @@ public final class StudentController {
         System.out.println("Hit:"+ student);
 
         return this.studentService.registerUser(student);
+    }
+
+    @Transactional
+    @PutMapping(path = "/student/{id}/addHost")
+    public StudentDtoOut addHostInStudent(@RequestBody HostDtoIn hostDtoIn, @PathVariable Long id) {
+        return this.studentService.addHost(hostDtoIn, id);
     }
 }

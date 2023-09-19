@@ -10,4 +10,6 @@ public interface HostServiceDto {
     HostDtoOut retrieveHost(HostDtoIn hostDtoIn);
 
     HostDtoOut getHostById(Long id);
+
+    boolean checkIfExistById(Long id);
 }

@@ -49,4 +49,13 @@ public class StudentServiceDtoImpl implements StudentServiceDto {
 
         return updated;
     }
+
+    @Override
+    public StudentDtoOut getStudent(Long id) {
+        Student student = this.dao.getById(id);
+
+        StudentDtoOut studentDtoOut = this.mapper.map(student, StudentDtoOut.class);
+
+        return studentDtoOut;
+    }
 }

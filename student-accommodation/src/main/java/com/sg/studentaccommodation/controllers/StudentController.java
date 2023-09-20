@@ -33,4 +33,9 @@ public class StudentController {
     public StudentDtoOut addHostInStudent(@RequestBody HostDtoIn hostDtoIn, @PathVariable Long id) {
         return this.studentService.addHost(hostDtoIn, id);
     }
+
+    @GetMapping(path = "/student/get/{id}")
+    public StudentDtoOut getStudent(@PathVariable(name = "id") Long id) {
+        return this.studentService.getStudent(id);
+    }
 }

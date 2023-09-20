@@ -10,4 +10,6 @@ public interface StudentServiceDto {
     StudentDtoOut registerUser(StudentDtoIn student);
 
     StudentDtoOut addHost(HostDtoIn host, Long studentId);
+
+    StudentDtoOut getStudent(Long id);
 }

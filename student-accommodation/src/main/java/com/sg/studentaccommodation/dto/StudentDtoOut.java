@@ -2,7 +2,6 @@ package com.sg.studentaccommodation.dto;
 
 import com.sg.studentaccommodation.entities.Room;
 import com.sg.studentaccommodation.entities.objects.Status;
-import com.sg.studentaccommodation.entities.people.Host;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +19,7 @@ public final class StudentDtoOut extends Person{
 
     private Status status;
 
-    private Host host;
+    private String university;
 
     private Room room;
 

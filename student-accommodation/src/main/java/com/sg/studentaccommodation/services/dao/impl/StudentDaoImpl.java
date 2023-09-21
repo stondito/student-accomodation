@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public final class StudentDaoImpl implements StudentDao {
@@ -36,5 +38,9 @@ public final class StudentDaoImpl implements StudentDao {
         return this.studentDao
                 .findById(id)
                 .orElseThrow(() -> new RuntimeException("Can't find user with id: " + id));
+    }
+
+    public List<Student> getAll() {
+        return this.studentDao.findAll();
     }
 }

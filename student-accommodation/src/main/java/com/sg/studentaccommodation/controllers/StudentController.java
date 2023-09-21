@@ -38,4 +38,12 @@ public class StudentController {
     public StudentDtoOut getStudent(@PathVariable(name = "id") Long id) {
         return this.studentService.getStudent(id);
     }
+
+    @PutMapping(path = "/student/{id}/complain/{roomNumber}")
+    public boolean makeComplain(@PathVariable(name = "roomNumber") int roomNumber
+                                , @PathVariable(name = "id") Long id
+                                , @RequestBody String reason) {
+
+        return this.studentService.makeComplain(roomNumber, id, reason);
+    }
 }

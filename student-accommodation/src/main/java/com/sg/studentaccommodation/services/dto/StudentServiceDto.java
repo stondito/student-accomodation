@@ -12,4 +12,6 @@ public interface StudentServiceDto {
     StudentDtoOut addHost(HostDtoIn host, Long studentId);
 
     StudentDtoOut getStudent(Long id);
+
+    boolean makeComplain( int roomNumber, Long id, String reason);
 }

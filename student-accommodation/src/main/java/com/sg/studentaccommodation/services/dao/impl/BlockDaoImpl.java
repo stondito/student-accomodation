@@ -1,5 +1,6 @@
 package com.sg.studentaccommodation.services.dao.impl;
 
+import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.repos.BlockRepo;
 import com.sg.studentaccommodation.services.dao.BlockDao;
 import lombok.AllArgsConstructor;
@@ -9,5 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 public final class BlockDaoImpl implements BlockDao {
 
-    private final BlockRepo blockDao;
+    private final BlockRepo blockRepo;
+
+    @Override
+    public Block saveBlock(Block block) {
+        return this.blockRepo.save(block);
+    }
 }

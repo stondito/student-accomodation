@@ -39,6 +39,7 @@ public class StudentController {
         return this.studentService.getStudent(id);
     }
 
+    @Transactional
     @PutMapping(path = "/student/{id}/complain/{roomNumber}")
     public boolean makeComplain(@PathVariable(name = "roomNumber") int roomNumber
                                 , @PathVariable(name = "id") Long id

@@ -85,7 +85,6 @@ public class StudentServiceDtoImpl implements StudentServiceDto {
 
             complainServiceDto.saveComplain(complain);
 
-            s.addComplain(complain);
         });
 
         return true;

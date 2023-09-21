@@ -2,15 +2,12 @@ package com.sg.studentaccommodation.entities.people;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sg.studentaccommodation.entities.Complain;
 import com.sg.studentaccommodation.entities.Room;
 import com.sg.studentaccommodation.entities.objects.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -42,18 +39,20 @@ public class Student extends Person {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @OneToMany
-    private Set<Complain> made;
+//    @JsonManagedReference
+//    @OneToMany(cascade = CascadeType.PERSIST)
+//    private Set<Complain> made;
+//
+//    @JsonManagedReference
+//    @OneToMany(cascade = CascadeType.PERSIST)
+//    private Set<Complain> recived;
 
-    @OneToMany
-    private Set<Complain> recived;
-
-    public void addComplain(Complain complain) {
-        if (recived == null) {
-            recived = new HashSet<>();
-        }
-
-        recived.add(complain);
-    }
+//    public void addComplain(Complain complain) {
+//        if (recived == null) {
+//            recived = new HashSet<>();
+//        }
+//
+//        recived.add(complain);
+//    }
 
 }

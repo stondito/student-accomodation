@@ -82,6 +82,7 @@ public class StudentServiceDtoImpl implements StudentServiceDto {
             complain.setReason(reason);
             complain.setRoom(room);
             complain.setFrom(student);
+            complain.setBlock(room.getBlock());
 
             complainServiceDto.saveComplain(complain);
 

@@ -26,4 +26,8 @@ public class Complain {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @ManyToOne
+    @JoinColumn(name = "block_id")
+    private Block block;
+
 }

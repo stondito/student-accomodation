@@ -1,5 +1,8 @@
 package com.sg.studentaccommodation.dto;
 
+import com.sg.studentaccommodation.entities.objects.Status;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -19,6 +22,9 @@ public final class StudentDtoIn extends Person {
 
     @Email
     private String email;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @Override
     public String toString() {

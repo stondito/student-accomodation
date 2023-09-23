@@ -21,8 +21,8 @@ public class Host extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Temporal(TemporalType.DATE) // Specify the temporal type
-    @DateTimeFormat(pattern = "dd/MM/yyyy") // Specify the date format
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfEntrance;
 
     private String username;

@@ -23,4 +23,15 @@ public final class StudentDtoOut extends Person{
 
     private Room room;
 
+    @Override
+    public String toString() {
+        return "StudentDtoOut{" +
+                "id=" + id +
+                ", fn=" + fn +
+                ", email='" + email + '\'' +
+                ", yearOfStudying=" + yearOfStudying +
+                ", status=" + status +
+                ", university='" + university + '\'' +
+                '}';
+    }
 }

@@ -16,4 +16,9 @@ public final class BlockDaoImpl implements BlockDao {
     public Block saveBlock(Block block) {
         return this.blockRepo.save(block);
     }
+
+    @Override
+    public Block getBlockById(Long id) {
+        return this.blockRepo.findById(id).orElseThrow(()-> new RuntimeException("Block id not found " + id));
+    }
 }

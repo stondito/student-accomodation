@@ -27,7 +27,7 @@ public class Host extends Person{
 
     private String username;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "block_id")
     private Block block;
 

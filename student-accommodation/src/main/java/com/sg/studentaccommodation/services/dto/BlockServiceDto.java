@@ -10,4 +10,6 @@ public interface BlockServiceDto {
     Block saveBlock(Block block);
 
     Page<ComplainDto> findComplainsByBlockId(Long blockID, Pageable pageable);
+
+    Block getBlockByID(Long id);
 }

@@ -1,12 +1,10 @@
 package com.sg.studentaccommodation.services.dto.impl;
 
 import com.sg.studentaccommodation.dto.ComplainDto;
-import com.sg.studentaccommodation.dto.HostDtoOut;
 import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.services.dao.BlockDao;
 import com.sg.studentaccommodation.services.dto.BlockServiceDto;
 import com.sg.studentaccommodation.services.dto.ComplainServiceDto;
-import com.sg.studentaccommodation.services.dto.HostServiceDto;
 import com.sg.studentaccommodation.services.dto.RoomServiceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Service;
 public class BlockServiceDtoImpl implements BlockServiceDto{
     private final BlockDao dao;
     private final RoomServiceDto roomServiceDto;
-    private final HostServiceDto hostServiceDto;
     private final ComplainServiceDto complainServiceDto;
     @Override
     public Block saveBlock(Block block) {
@@ -35,5 +32,10 @@ public class BlockServiceDtoImpl implements BlockServiceDto{
     public Page<ComplainDto> findComplainsByBlockId(Long blockId, Pageable pageable) {
 
         return this.complainServiceDto.findComplainsByBlockId(blockId, pageable);
+    }
+
+    @Override
+    public Block getBlockByID(Long id) {
+        return this.dao.getBlockById(id);
     }
 }

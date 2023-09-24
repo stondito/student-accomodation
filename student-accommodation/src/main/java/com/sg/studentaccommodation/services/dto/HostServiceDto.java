@@ -2,6 +2,7 @@ package com.sg.studentaccommodation.services.dto;
 
 import com.sg.studentaccommodation.dto.HostDtoIn;
 import com.sg.studentaccommodation.dto.HostDtoOut;
+import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.entities.people.Host;
 
 public interface HostServiceDto {
@@ -12,4 +13,8 @@ public interface HostServiceDto {
     HostDtoOut getHostById(Long id);
 
     boolean checkIfExistById(Long id);
+
+    Long getBlockByHostId(Long id);
+
+    HostDtoOut appoint(Long id, Long blockID);
 }

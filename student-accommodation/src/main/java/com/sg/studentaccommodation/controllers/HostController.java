@@ -2,6 +2,7 @@ package com.sg.studentaccommodation.controllers;
 
 import com.sg.studentaccommodation.dto.HostDtoIn;
 import com.sg.studentaccommodation.dto.HostDtoOut;
+import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.services.dto.HostServiceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,5 +44,16 @@ public class HostController {
     @GetMapping(path = "/host/get/{id}")
     public HostDtoOut getHost(@PathVariable(name = "id") Long id) {
         return this.serviceDto.getHostById(id);
+    }
+
+    @GetMapping(path = "/host/{id}/block")
+    public Long getBlockIdBySHostId(@PathVariable(name = "id") Long id) {
+        return this.serviceDto.getBlockByHostId(id);
+    }
+
+    @Transactional
+    @PutMapping(path = "/host/{id}/appoint/{blockID}")
+    public HostDtoOut appoint(@PathVariable(name = "id") Long id, @PathVariable(name = "blockID") Long blockId) {
+        return this.serviceDto.appoint(id, blockId);
     }
 }

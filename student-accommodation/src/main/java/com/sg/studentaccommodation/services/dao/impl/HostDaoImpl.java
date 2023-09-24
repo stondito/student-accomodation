@@ -3,6 +3,7 @@ package com.sg.studentaccommodation.services.dao.impl;
 
 import com.sg.studentaccommodation.dto.HostDtoIn;
 import com.sg.studentaccommodation.dto.HostDtoOut;
+import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.entities.people.Host;
 import com.sg.studentaccommodation.repos.HostRepo;
 import com.sg.studentaccommodation.services.dao.HostDao;
@@ -39,5 +40,14 @@ public final class HostDaoImpl implements HostDao {
 
     public boolean checkIfExistById(Long id) {
         return this.hostRepo.existsById(id);
+    }
+
+    @Override
+    public Host appoint(Long id, Block block) {
+        Host updated = getHostById(id);
+
+        updated.setBlock(block);
+
+        return updated;
     }
 }

@@ -51,4 +51,10 @@ public class StudentController {
         return this.studentService.makeComplain(roomNumber, id, reason);
     }
 
+    @Transactional
+    @PutMapping(path = "/student/{id}/request/accommodation")
+    public StudentDtoOut requestAccommodation(@PathVariable(name = "id") Long id){
+        return this.studentService.requestAccommodate(id);
+    }
+
 }

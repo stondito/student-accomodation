@@ -6,6 +6,7 @@ import com.sg.studentaccommodation.dto.StudentDtoOut;
 import com.sg.studentaccommodation.entities.Block;
 import com.sg.studentaccommodation.entities.Complain;
 import com.sg.studentaccommodation.entities.Room;
+import com.sg.studentaccommodation.entities.objects.Status;
 import com.sg.studentaccommodation.entities.people.Host;
 import com.sg.studentaccommodation.entities.people.Student;
 import com.sg.studentaccommodation.services.dao.HostDao;
@@ -89,5 +90,15 @@ public class StudentServiceDtoImpl implements StudentServiceDto {
         });
 
         return true;
+    }
+
+    @Override
+    public StudentDtoOut requestAccommodate(Long id) {
+        Student student = this.dao.getById(id);
+        student.setStatus(Status.Waiting);
+
+        StudentDtoOut studentDtoOut = this.mapper.map(student, StudentDtoOut.class);
+
+        return studentDtoOut;
     }
 }

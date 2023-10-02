@@ -14,4 +14,6 @@ public interface StudentServiceDto {
     StudentDtoOut getStudent(Long id);
 
     boolean makeComplain( int roomNumber, Long id, String reason);
+
+    StudentDtoOut requestAccommodate(Long id);
 }

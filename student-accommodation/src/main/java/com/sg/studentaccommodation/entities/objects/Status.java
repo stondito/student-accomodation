@@ -4,5 +4,6 @@ public enum Status {
     Accommodated,
     Left,
     Expiring,
-    New
+    New,
+    Waiting
 }

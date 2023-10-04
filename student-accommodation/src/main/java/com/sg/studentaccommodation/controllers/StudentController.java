@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @AllArgsConstructor
 public class StudentController {
@@ -41,7 +42,7 @@ public class StudentController {
         return this.studentService.getStudent(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @Transactional
     @PutMapping(path = "/student/{id}/complain/{roomNumber}")
     public boolean makeComplain(@PathVariable(name = "roomNumber") int roomNumber

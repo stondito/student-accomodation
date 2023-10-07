@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 public class BlockController {
@@ -26,5 +28,10 @@ public class BlockController {
                                           @PathVariable(name = "id") Long id) {
 
         return this.service.findComplainsByBlockId(id, PageRequest.of(Integer.parseInt(page.trim()), Integer.parseInt(size.trim())));
+    }
+
+    @GetMapping(path = "/block/empty/rooms")
+    List<Block> getBlocksWithEmptyRooms() {
+        return this.service.findBlocksWithFreeRooms();
     }
 }

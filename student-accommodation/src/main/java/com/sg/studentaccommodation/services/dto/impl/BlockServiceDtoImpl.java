@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class BlockServiceDtoImpl implements BlockServiceDto{
@@ -37,5 +39,10 @@ public class BlockServiceDtoImpl implements BlockServiceDto{
     @Override
     public Block getBlockByID(Long id) {
         return this.dao.getBlockById(id);
+    }
+
+    @Override
+    public List<Block> findBlocksWithFreeRooms() {
+        return this.dao.findBlocksWithFreeRooms();
     }
 }

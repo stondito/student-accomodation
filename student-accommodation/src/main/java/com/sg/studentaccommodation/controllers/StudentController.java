@@ -5,6 +5,8 @@ import com.sg.studentaccommodation.dto.StudentDtoIn;
 import com.sg.studentaccommodation.dto.StudentDtoOut;
 import com.sg.studentaccommodation.services.dto.StudentServiceDto;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -56,6 +58,12 @@ public class StudentController {
     @PutMapping(path = "/student/{id}/request/accommodation")
     public StudentDtoOut requestAccommodation(@PathVariable(name = "id") Long id){
         return this.studentService.requestAccommodate(id);
+    }
+
+    @GetMapping(path = "/student/new/students")
+    public Page<StudentDtoOut> getNewStudents(@RequestParam(name = "page") String page, @RequestParam(name = "size") String size ) {
+        return this.studentService.findNewStatusStudents(PageRequest.of(Integer.parseInt(page),
+                                                                        Integer.parseInt(size)));
     }
 
 }

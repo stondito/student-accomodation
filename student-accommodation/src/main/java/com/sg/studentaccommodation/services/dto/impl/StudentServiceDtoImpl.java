@@ -15,6 +15,8 @@ import com.sg.studentaccommodation.services.dto.ComplainServiceDto;
 import com.sg.studentaccommodation.services.dto.StudentServiceDto;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -100,5 +102,10 @@ public class StudentServiceDtoImpl implements StudentServiceDto {
         StudentDtoOut studentDtoOut = this.mapper.map(student, StudentDtoOut.class);
 
         return studentDtoOut;
+    }
+
+    @Override
+    public Page<StudentDtoOut> findNewStatusStudents(Pageable pageable) {
+        return this.dao.findNEwStatusStudents(pageable).map(s -> this.mapper.map(s, StudentDtoOut.class));
     }
 }

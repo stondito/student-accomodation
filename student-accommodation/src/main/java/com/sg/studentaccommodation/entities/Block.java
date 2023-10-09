@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "td_block")
 public class Block {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

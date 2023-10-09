@@ -2,6 +2,7 @@ package com.sg.studentaccommodation.services.dao.impl;
 
 import com.sg.studentaccommodation.dto.StudentDtoIn;
 import com.sg.studentaccommodation.entities.Room;
+import com.sg.studentaccommodation.entities.objects.Sex;
 import com.sg.studentaccommodation.entities.objects.Status;
 import com.sg.studentaccommodation.entities.people.Student;
 import com.sg.studentaccommodation.repos.RoomRepo;
@@ -36,5 +37,10 @@ public final class RoomDaoImpl implements RoomDao {
     @Override
     public Room saveRoom(Room room) {
         return this.roomRepo.save(room);
+    }
+
+    @Override
+    public List<Room> findFreeRooms(Long blockId) {
+        return this.roomRepo.findFreeRooms(blockId);
     }
 }

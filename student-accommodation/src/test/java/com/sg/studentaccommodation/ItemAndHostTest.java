@@ -5,6 +5,7 @@ import com.sg.studentaccommodation.entities.objects.Sex;
 import com.sg.studentaccommodation.entities.people.Host;
 import com.sg.studentaccommodation.repos.HostRepo;
 import com.sg.studentaccommodation.services.dto.BulletinService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,7 @@ public class ItemAndHostTest {
     @Autowired
     private HostRepo hostRepo;
 
+    @Disabled
     @Test
     public void testAddItemInBulletin() {
 

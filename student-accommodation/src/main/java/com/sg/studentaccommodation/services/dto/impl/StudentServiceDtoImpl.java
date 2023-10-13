@@ -77,7 +77,7 @@ public class StudentServiceDtoImpl implements StudentServiceDto {
                         .stream()
                         .filter(r-> r.getRoomNumber() == roomNumber)
                         .findFirst()
-                        .orElseThrow(() -> new RuntimeException("no broom number in block found"));
+                        .orElseThrow(() -> new RuntimeException("no room number in block found"));
 
         room.getStudents().stream().forEach(s -> {
             Complain complain = new Complain();

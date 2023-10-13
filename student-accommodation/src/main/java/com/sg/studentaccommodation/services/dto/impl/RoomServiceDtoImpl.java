@@ -25,7 +25,8 @@ public class RoomServiceDtoImpl implements RoomServiceDto {
 
         Room room = dao.getRoom(roomID);
 
-        if (room.getStudents().size() >= room.getNumberOfBeds()) {
+        if (room.getStudents() != null && room.getStudents().size() >= room.getNumberOfBeds()) {
+            // todo custom exception
             throw new RuntimeException("there are no free beds");
         }
 

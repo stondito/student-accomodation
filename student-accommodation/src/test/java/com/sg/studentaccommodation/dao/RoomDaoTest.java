@@ -13,6 +13,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -59,5 +61,14 @@ public class RoomDaoTest {
         dao.findFreeRooms(1L);
 
         verify(repo, times(1)).findFreeRooms(1L);
+    }
+
+    @Test
+    public void shouldGetRoomById() {
+        when(repo.findById(1L)).thenReturn(Optional.of(new Room()));
+
+        dao.getRoom(1L);
+
+        verify(repo, times(1)).findById(1L);
     }
 }

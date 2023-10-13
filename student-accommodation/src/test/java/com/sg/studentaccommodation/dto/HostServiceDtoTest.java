@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -47,6 +48,50 @@ public class HostServiceDtoTest {
         service.checkIfExistById(1L);
 
         verify(dao, times(1)).checkIfExistById(1L);
+    }
+
+    @Test
+    public void testGetHostByById() {
+        Host host = new Host();
+        HostDtoOut out = new HostDtoOut();
+
+        when(dao.getHostById(1L)).thenReturn(host);
+        when(modelMapper.map(host, HostDtoOut.class)).thenReturn(out);
+
+        service.getHostById(1L);
+
+        verify(dao, times(1)).getHostById(1L);
+        verify(modelMapper, times(1)).map(host, HostDtoOut.class);
+    }
+
+    @Test
+    public void testRegisterHost() {
+        HostDtoIn in = new HostDtoIn();
+        Host host = new Host();
+        HostDtoOut out = new HostDtoOut();
+
+        when(dao.registerHost(in)).thenReturn(host);
+        when(modelMapper.map(host, HostDtoOut.class)).thenReturn(out);
+
+        service.registerHost(in);
+
+        verify(dao, times(1)).registerHost(in);
+        verify(modelMapper, times(1)).map(host, HostDtoOut.class);
+    }
+
+    @Test
+    public void testGetBlockByHostId() {
+        Block block = new Block();
+        block.setId(2L);
+        Host host = new Host();
+        host.setBlock(block);
+        when(dao.getHostById(1L)).thenReturn(host);
+
+        Long id = service.getBlockByHostId(1L);
+
+        verify(dao, times(1)).getHostById(1L);
+        assertEquals(block.getId(), id);
+
     }
 
     @Test
